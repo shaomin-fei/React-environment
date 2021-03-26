@@ -1,0 +1,43 @@
+1. After run eslint-prettier-config.sh to get eslint-prettier-airbnb-react, we must modify .eslintrc.js(or .eslintrc.json) file,delet prettier:prettier option
+Since the plugin has been updated. See:
+https://github.com/prettier/eslint-config-prettier/blob/main/CHANGELOG.md#version-800-2021-02-21
+
+
+
+2. add flow
+**yarn add --dev babel-cli babel-preset-flow
+ then run command: flow init if there is no .flowconfig
+if flow can't find test case, which means we don't have jest type for flos, then :
+**npx jest -v to see version of jest
+**npm install --save-dev flow-bin
+**npm i -D flow-typed
+**npx flow-typed install jest@22  (version may different), after these steps, in root directory, there is a added folder named flow-typed
+** in .flowconfig file, add:
+[libs]
+flow-typed
+
+Flow rules may violet with eslint, then:
+https://github.com/gajus/eslint-plugin-flowtype#eslint-plugin-flowtype-rules-object-type-curly-spacing
+**npm install eslint-plugin-flowtype --save-dev  NOTICE after above steps, most dependencies have been installed, we only need this one
+add below to  .eslintrc:
+  extends: [
+    'airbnb',
+    'plugin:prettier/recommended',
+    'plugin:flowtype/recommended',
+  ],
+  plugins: ['flowtype'],
+  settings: {
+    flowtype: {
+      onlyFilesWithFlowAnnotation: true,
+    },
+  },
+
+
+3. flow should be run by flow check
+
+4. npm install --save-dev pre-commit, before commit, execute command to check
+**npm install --save-dev pre-commit
+**
+
+
+

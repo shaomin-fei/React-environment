@@ -1,7 +1,14 @@
+// @flow
+/*
+ * @Description:
+ * @Author: Shaomin Fei
+ * @Date: 2021-03-25 22:43:55
+ */
+import * as React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(): React.Element<any> {
   return (
     <div className="App">
       <header className="App-header">
