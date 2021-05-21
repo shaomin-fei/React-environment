@@ -38,6 +38,9 @@ add below to  .eslintrc:
 4. npm install --save-dev pre-commit, before commit, execute command to check
 **npm install --save-dev pre-commit
 **
+5. fix lint error when saving
+go to settings---search "codeActionsOnSave"---open .json---input follow text
+"editor.codeActionsOnSave": { "source.fixAll.eslint": true }
 
 
 
